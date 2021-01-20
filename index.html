@@ -1,74 +1,337 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-<html>
+</head>
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <div class="content col-md-8">
 
                 <div class="row">
-                    <div class="col-9">
-                        <h1>Explainable Artificial Intelligence</h1>
-                        <h2>Explainable Decision Support Systems</h2>
+                    <div class="col-12">
+                        <div class="column">
+                            <h1>Explainable Artificial Intelligence:</h1></br>
+                            <h1>From Arguments to Decisions</h1>
+                        </div>
                         </br>
+                        <div class="row">
+
+                            <div class="col-1"></div>
+                            <div class="col-6">
+                                <div>
+                                    <h2>Explainable Decision Support Systems</h2>
+                                </div>
+                                <p>Decision support systems become increasingly important in our everyday lives. If you are not sure how a decision support system might look like, try the example we provide on the right side. More sophisticated examples can be found in medicine and law, amongst other domains. Consider doctors that consult computer programmes to analyse a patient’s case and get recommendations for potential treatments. Or tax software, which asks the right questions for you to make the optimal financial decisions, given the legal and financial situation you find yourself in.
+                                </p><p>Already today we can see the impact that decision support systems have. However, they are often so called black box systems, meaning that even the developers don’t always understand how they obtain their results.
+                                </p>
+
+                                <img id="funny_doctor"src="https://xai.davidpomerenke.vercel.app/2020_cartoon_img_1.jpg"></br>
+                                <div class="side-card">Fig. 1. Issues with relying on automated decision support systems (source: [Untitled illustration of a medical decision] (2017)).</div>
+
+                                </br>
+                                </br>
+                                <p>The core problem that this research project is concerned with is how we can make sense of the rationale behind the decisions coming from a decision support system. Our approach is to utilize a well understood model of such reasoning: Argumentation systems. </p><p>Consider the following example:
+                                </br>
+                                Assuming we know that:
+                                </br>
+                                1) Sokrates is human.</br>
+                                2) All humans are mortal.</br>
+                                Then we can conclude that:</br>
+                                3) Sokrates is mortal. </br>
+                                </br>
+
+                                We can say that 3) follows from 1) and 2). Thus, if we believe that 1) and 2) are true, then these are our reasons for why we should also believe 3). </p><p>While this example might seem easy to understand, things can get complicated quickly when you consider many different facts and rules, as might be the case in the domains mentioned above. </p><p>That is where logics and, more specifically, argumentation systems come into play: They provide us with the necessary set of formal tools to handle such problems computationally. The key point, here, is that the reasons within such a system can be made explicit.
+                                </br>The main idea behind this project, then, is to utilize argumentation systems to augment decision support systems.</p>
+                                </br>
+
+                                <h3>Research Questions</h3>
+                                <ul>
+                                <li>What are the requirements for the explanations that an automated decision system has to provide, such that we can understand why and how a certain decision was made?</li>
+                                <li>Is it possible to provide an adequate explanation with each decision, as in different fields the user might need different level of understanding of the decision process? </li>
+                                <li>Legal specifications create specific rules for making decisions. Thus, we will investigate if these rules can be used to automatically generate a decision system that provides explanations with the decisions made.</li>
+                                </br>
+                                </ul>
+                                <h3>Outcomes</h3>
+                                <ul>
+                                <li>We implemented an argumentation system that given a question and a set of rules, formulated in defeasible logic, provides arguments for and against a decision. Defeasible logic is a logical system that can model the interactions between different arguments especially well. This outcome marks a major mile stone, as it gives us the founation upon which to build the explainable decision support system. A stand-alone application of the results can be inspected at a dedicated <a href="https://xai.davidpomerenke.vercel.app/defeasible-tableau.html">web page</a>.</li>
+                                <li>More results will be added as the project progresses.</li>
+                                </ul>
+                                </br>
+                                <h3>References:</h4>
+                                <ul>
+                                    <li>[Untitled illustration of a medical decision] (2017). Musculoskeletal Physiotherapy at the University of Brighton. (http://blogs.brighton.ac.uk/musculoskeletalphysiotherapy/2017/12/11/the-person-the-patient-the-physiotherapist/)</li>
+                                </ul>
+                                </br>
+                                </br>
+                                </br>
+                            </div>
+                            <div class="col-1"></div>
+                            <div class="col-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card text-center">
+                                            <div class="card-body">
+                                                <h3>A Decision Support System</h3>
+                                                <h4>Should you read this text?</h4>
+                                                <div class="row">
+                                                    <input id="decision_support_simulator" value="Have you already read the page?" class="input-group-text" type="text"></input>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="btn-group ds_simul_input mx-auto" role="group" aria-label="First group">
+                                                        <button id="yes_button" type="button" class="btn btn-success">Yes</button>
+                                                        <button id="no_button" type="button" class="btn btn-danger">No</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row margin_top">
+                                    <div class="col">
+                                        <div class="card text-center">
+                                            <div id='info_card_header1' onclick="showInfoCard1()" class="card-header">
+                                                Why do we care about the reasons if we know computers make good decisions? <div class="greyfont">Click to expand</div>
+                                            </div>
+                                            <div id='info_card_body1' class="card-body">
+                                                <div class="row">
+                                                    <p class="card-text">If we cannot comprehend the reasoning behind a decision, this can have serious ramifications: Thinking of the medical, the reader may ask themselves whether they would trust a decision made by a computer for reasons unknown to us! The savvy reader might be inclined to trust the machine, but the issue is at least controversial. It shows that a lack of understanding a decision making process might lead to a lack of confidence in the decision made.
+                                                    </br>
+                                                    Beyond trust concerns, even legal or moral implications need to be considered: Change your perspective from the patient to the doctor. Would you take responsibility for the decisions you make based on the computer-aided system? And if you would, can you be held accountable for them, given that you had no full knowledge of the underlying reasoning? These, again, are undecided matters.
+                                                    </br>
+                                                    Contemporarily, legislative instances in several countries pick up on that issue and regulations are being put in place.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row margin_top">
+                                    <div class="col">
+                                        <div class="card text-center">
+                                            <div id='info_card_header2' onclick="showInfoCard2()" class="card-header">
+                                                Why do we need decision support systems if we have argumentation systems? <div class="greyfont">Click to expand</div>
+                                            </div>
+                                            <div id='info_card_body2' class="card-body">
+                                                <div class="row">
+                                                    <p class="card-text">If you wonder why we still need decision support systems even though the argumentation system seems to already provide us with a conclusion with respect to some reasons, consider this: In real world applications it is not always the case that all the information relevant for arriving at the desired conclusion is available from the start. We can imagine it like the doctor who needs to ask more and more specific questions of the patient to hone in on his diagnosis.
+                                                    However, for these logical systems to work, they need to have all the relevant information available for each conclusion they should check. On the other hand, this is where decision support systems excel. They are built in such a way that the information considered for coming up with a decision expands with each question asked. So ideally, by combining the two systems, we get the best of both worlds.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row margin_top">
+                                    <div class="col">
+                                        <div class="card text-center">
+                                            <div class="card-body side-card">
+                                                <div class="row">
+                                                    A semester 2020-2021 master's project.
+                                                </div>
+                                                <div class="row">
+                                                    Supervised by:
+                                                </div>
+                                                <div class="row">
+                                                    <b>Dr. ir. ing. Nico Roos</b>
+                                                </div>
+                                                <div class="row">
+                                                    <b>Dr. Pieter Collins</b>
+                                                </div>
+                                                <div class="row">
+                                                    Our Team:
+                                                </div>
+                                                <div class="row">
+                                                    <b>Barbara Futyma</b>
+                                                </div>
+                                                <div class="row">
+                                                    <b>David Pomerenke</b>
+                                                </div>
+                                                <div class="row">
+                                                    <b>Daivd Schimmel</b>
+                                                </div>
+                                                <div class="row">
+                                                    <b>Erik Nakoja</b>
+                                                </div>
+                                                <div class="row">
+                                                    <b>JingYang Zeng</b>
+                                                </div>
+                                                <div class="row">
+                                                    <b>Laurens Rutten</b>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
-                        Best Idea Ever: Implement a pseudo decision support system (Should I read this paper: Did you read it before? y-> Did you understand it? y-> Were there changes since the last time you read? n-> dun readit kek)
-
-                        Decision support systems become increasingly important in our every day lifes. Examples can be found in medicine and law, amongst other domains. Consider doctors that consult computer programmes to analyse a patient and get recommendations for potential treatments. Or tax software which asks the right questions for you to make the optimal finencial decisions given the legal and financial situation you find yourself in. Already today we can see the impact that decision support systems have.
-                        </br>
-                        However, more often than not, those systems are so called black box systems, meaning that their inner workings are unknown, in some cases not only to the users, but even to the developers. This can have serious rammifications: Thinking of the medical example given above, the reader may ask themselves whether they would trust a decision made by a computer for reasons unkown to us! The savvy reader might  be inclined to trust the machine, but the issue is at least controversial and shows that a lack of understanding a decision making process might lead to a lack of confidence in the decision came by that process.
-                        </br>
-                        <img src="https://4.bp.blogspot.com/-SmrY9miMCU4/Wn_cwIH9KXI/AAAAAAAAHEs/r3XXC2W6jXwZgqHm1sI1qp21STumn5SWgCLcBGAs/s1600/Toomuch%2BComputer.jpg">
-                        </br>
-                        Beyond trust issues, even legal or moral implications need to be considered: Change your perspective from the patient to the doctor. Are you willing to take responsibility for the decision you make based on the computer-aided system? And if you do, can you be held accountable for them, given that you had no full knowledge of the underlying reasoning? These, again, are undecided matters.
-                        </br>
-                        Contemporarily, legislative instance in several countries pick up on that issue and regulations are being put in place [MIGHT ADD INFO BOX ABOUT COURT DECISIONS]
-
-
-                        <h2>Arguments and Rules</h2>
-                        To gain insights into the rationale behind decisions made or supported by a computer system, we laverage the relation between rules and arguments. Both rules and arguments exhibit a similiar logical structure:
-                        <\br>
-                        A rule checks whether a number of conditions apply. If they do, then the rule tells what action should follow.
-                        <\br>
-                        An argument checks whether a number of reasons hold. If they do, then the argument tells us what consequence should be concluded.
-                        <\br>
-                        Out approach, figuratively speaking, is to utilize this similarity in their logical structure to map the decisions of a decision support system to reasons which should be found in the application domain, i.e. the medical or juridical field.
-                        <\br>
-                        The advantage of that approach is that ...
-
-
-
-                        <h2>Explainable Decisions via Argumentation</h2>
-                        Our approach to explainable decisions support systems is to explicate the rules underlying a decision support system within a given domain. We then analize the relation between these rules and under which conditions they apply. Finally, we bring this analysis back to the decision support system so that given any decision, we can explicate the rationale leading to that decision.
-
-                        (This is then, by nature, limited to some kinds of decision support systems.
                     </div>
 
-                    <div class="col-3">
-                        <h3>Downloads/Links</h3>
-                        <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action">Second Period Presentation</a>
-                            <a href="#" class="list-group-item list-group-item-action disabled">Final Report (to be added upon project completion)</a>
-                            <a href="#" class="list-group-item list-group-item-action disabled">Documentation (to be added upon project completion)</a>
-                            <a href="https://github.com/XAI-ExplainableArtificialIntelIigence/ArgumentationSystemPrototype" class="list-group-item list-group-item-action">Code (permission will be granted on individual basis)</a>
-                            <a href="#" class="list-group-item list-group-item-action disabled">Test Site</a>
+                    <div class="col">
+                        <div><h4>Downloads/Links</h4></div>
+                        <div class="list-group downloard-group">
+                            <a href="https://github.com/explainable-reasoning/explainable-reasoning/blob/main/report.pdf" class="list-group-item list-group-item-action disabled">Project proposal</a>
+                            <a href="https://github.com/explainable-reasoning/explainable-reasoning/blob/main/report.pdf" class="list-group-item list-group-item-action disabled">Project report</a>
+                            <a href="https://xai.davidpomerenke.vercel.app/defeasible-tableau.html" class="list-group-item list-group-item-action">Prototype 1: Defeasible Tableau</a>
+                            <a href="https://github.com/explainable-reasoning/explainable-reasoning" class="list-group-item list-group-item-action">Repository with code and documentation</a>
+                            
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
-
             <div class="col-md-2"></div>
         </div>
     </div>
 </body>
 </html>
 
+<style>
+
+    body {
+        background-color: #D9b584;
+    }
+
+    h1{
+        text-align: center;
+    }
+
+    h6{
+        text-align: right;
+    }
+
+    .content {
+        background-color: #FAEADB;
+    }
+
+    #funny_doctor {
+        width:100%;
+        max-width:400px;
+    }
+
+    .card {
+        background-color: #FAEADB;
+    }
+
+    .card-text {
+        text-align: left;
+    }
+
+    .side-card {
+        font-size: 0.8em;
+    }
+
+    #decision_support_simulator {
+        width: 100%;
+    }
+
+    .list-group-item.disabled {
+        background-color: #FAEADB;
+    }
+
+    .list-group-item {
+        background-color: #FAEADB;
+    }
+
+    .list-group-item:hover {
+        background-color: #D9b584;
+    }
+
+    .card-header:hover{
+        cursor: pointer;
+        background-color: #D9b584;
+    }
+
+    .greyfont {
+        color: grey
+    }
+
+    .downloard-group {
+        margin-bottom: 2em;
+    }
+
+    .margin_top {
+        margin-top: 1.0em
+    }
+
+    #info_card_body1 {
+        display: none;
+    }
+
+    #info_card_body2 {
+        display: none;
+    }
+
+</style>
+
 <script>
-</scipt>
+    let currentQuestion = 0;
+    let questions = {0: ["Did you read this text before?", 1, 2],
+                     1: ["Were there any changes since you last read it?", 2, 101],
+                     2: ["Are you interested in the topic?", 100, 3],
+                     3: ["Should you grade the website?", 100, 101],
+
+                     100: ["You should read the text.", 100, 100],
+                     101: ["You don't need to read the text.", 101, 101]};
+
+    function makeYesDecision() {
+        makeDecision(true);
+    }
+    function makeNoDecision() {
+        makeDecision(false);
+    }
+
+    function makeDecision(yes){
+        questionInput = document.getElementById('decision_support_simulator');
+
+        currentQuestion = yes ? questions[currentQuestion][1] : questions[currentQuestion][2];
+        questionInput.value = questions[currentQuestion][0];
+
+        return
+    }
+
+    // shownInfoBoxes = [false, false]
+    // function showInfoCard(i) {
+    //     let element = document.getElementById('info_card_body' + i);
+    //     if (shownInfoBoxes[i] === false) {
+    //         element.style.display = "block";
+    //     } else {
+    //         element.style.display = "hidden";
+    //     }
+
+    // }
+    ib1 = false;
+    function showInfoCard1() {
+        let element = document.getElementById('info_card_body1');
+        if (ib1 === false) {
+            element.style.display = "block";
+            ib1 = true;
+        } else {
+            element.style.display = "none";
+            ib1 = false;
+        }
+        return;
+    }
+    ib2 = false;
+    function showInfoCard2() {
+        let element = document.getElementById('info_card_body2');
+        if (ib2 === false) {
+            element.style.display = "block";
+            ib2 = true;
+        } else {
+            element.style.display = "none";
+            ib2 = false;
+        }
+        return;
+    }
+
+
+    document.getElementById('yes_button').onclick = makeYesDecision;
+    document.getElementById('no_button').onclick = makeNoDecision;
+
+</script>

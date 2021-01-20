@@ -1,5 +1,3 @@
-# presentation
+# Explainable artificial intelligence: From arguments to decisions
 
-For now, contained will be a laymen's website.
-
-[Website](https://xai-explainableartificialinteliigence.github.io/presentation/index.html)
+[Website](https://explainable-reasoning.github.io)
